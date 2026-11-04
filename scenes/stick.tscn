@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b0t0a4446p3ut"]
+
+[ext_resource type="Texture2D" uid="uid://b8pwmjmma4h7w" path="res://assets/sticcu/randomplaceholder.png" id="1_i3vek"]
+[ext_resource type="Script" uid="uid://bjyu6loefgbp2" path="res://scripts/stick.gd" id="1_ld7er"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8wbh"]
+atlas = ExtResource("1_i3vek")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld7er"]
+atlas = ExtResource("1_i3vek")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hhk8r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8wbh")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld7er")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ld7er"]
+radius = 33.0
+height = 91.0
+
+[node name="Stick" type="CharacterBody2D" unique_id=511565429 groups=["stick"]]
+script = ExtResource("1_ld7er")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=134156208]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_hhk8r")
+animation = &"right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1551241061]
+position = Vector2(0, 2.5)
+shape = SubResource("CapsuleShape2D_ld7er")
