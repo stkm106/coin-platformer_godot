@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Stick
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 const SPEED = 600.0
 const JUMP_VELOCITY = -906.0
 
@@ -25,6 +25,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	if direction == 1.0:
-		animated_sprite_2d.animation = "right"
+		sprite.play("right")
 	elif direction == -1.0:
-		animated_sprite_2d.animation = "left"
+		sprite.play("left")

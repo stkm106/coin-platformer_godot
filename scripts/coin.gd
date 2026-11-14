@@ -5,6 +5,8 @@ signal coin_respawn
 enum CoinType { GOOD, BAD }
 var type: CoinType = CoinType.GOOD
 @onready var coin_sprite: AnimatedSprite2D = $CoinSprite
+@onready var collision: CollisionShape2D = $CollisionShape2D
+@onready var sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 # lifetime duration of a coin
 func _ready():
@@ -30,7 +32,14 @@ func _on_lifetime_timeout():
 func _on_body_entered(body: Node2D):
 	if body is Stick:
 		if type == CoinType.GOOD:
+			GameManager.score += 1
 			coin_respawn.emit()
+			
+			$CoinSprite.visible = false
+			$CollisionShape2D.set_deferred("disabled", true)
+			$AudioStreamPlayer2D.play()
+			await $AudioStreamPlayer2D.finished
 			call_deferred("queue_free") # for gold coin to be collected
 		else:
+			GameManager.score = 0
 			get_tree().call_deferred("reload_current_scene") # for red coin to reload main_game
