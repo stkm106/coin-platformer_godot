@@ -97,6 +97,7 @@ tile_set = SubResource("TileSet_anrn8")
 [node name="CoinSpawn" type="Node2D" parent="Map1" unique_id=931691444]
 script = ExtResource("2_tyn2t")
 coin_scene = ExtResource("3_anrn8")
+bad_coin_chance = 0.0
 
 [node name="SpawnPoints" type="Node2D" parent="Map1/CoinSpawn" unique_id=1150469087]
 
@@ -160,7 +161,7 @@ position = Vector2(1812, 52)
 position = Vector2(1421, 161)
 
 [node name="MarkerMR" type="Marker2D" parent="Map2/CoinSpawn2/SpawnPoints" unique_id=839179669]
-position = Vector2(2105, 207)
+position = Vector2(2105, 212)
 
 [node name="MarkerBR" type="Marker2D" parent="Map2/CoinSpawn2/SpawnPoints" unique_id=555630642]
 position = Vector2(2415, 365)

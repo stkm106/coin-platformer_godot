@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://rhnwaejigicl"]
+
+[ext_resource type="Texture2D" uid="uid://dki4701vamyn4" path="res://assets/sticcu/placeholdernpc.png" id="1_qlxjv"]
+[ext_resource type="Script" uid="uid://xvhh4bif2gfh" path="res://scripts/stmin.gd" id="1_ydiof"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydiof"]
+atlas = ExtResource("1_qlxjv")
+region = Rect2(0, 0, 768, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hhk8r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydiof")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhk8r"]
+size = Vector2(185, 131)
+
+[node name="Stmin" type="Area2D" unique_id=221615099]
+script = ExtResource("1_ydiof")
+
+[node name="StminSprite" type="AnimatedSprite2D" parent="." unique_id=1852048520]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_hhk8r")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=906824517]
+position = Vector2(0.5, 6.5)
+shape = SubResource("RectangleShape2D_hhk8r")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1056697686]
+offset_left = -129.0
+offset_top = -137.0
+offset_right = 132.0
+offset_bottom = -56.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Ayyo come here!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

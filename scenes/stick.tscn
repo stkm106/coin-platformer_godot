@@ -38,7 +38,7 @@ height = 91.0
 script = ExtResource("1_ld7er")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=134156208]
+[node name="StickSprite" type="AnimatedSprite2D" parent="." unique_id=134156208]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_hhk8r")
 animation = &"left"

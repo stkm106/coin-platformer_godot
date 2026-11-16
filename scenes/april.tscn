@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cdutyi0iolur8"]
+
+[ext_resource type="Script" uid="uid://cyqh3x3aishat" path="res://scripts/april.gd" id="1_jdfi7"]
+[ext_resource type="Texture2D" uid="uid://be72tm30xrgi6" path="res://assets/sticcu/april.png" id="2_x13fn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hhk8r"]
+radius = 6.166667
+
+[node name="April" type="Area2D" unique_id=1676754658]
+script = ExtResource("1_jdfi7")
+
+[node name="AprilSprite" type="Sprite2D" parent="." unique_id=1193384430]
+position = Vector2(0, -3)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("2_x13fn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=938599231]
+scale = Vector2(6, 6)
+shape = SubResource("CircleShape2D_hhk8r")

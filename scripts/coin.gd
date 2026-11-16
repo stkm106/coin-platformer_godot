@@ -35,10 +35,10 @@ func _on_body_entered(body: Node2D):
 			GameManager.score += 1
 			coin_respawn.emit()
 			
-			$CoinSprite.visible = false
-			$CollisionShape2D.set_deferred("disabled", true)
-			$AudioStreamPlayer2D.play()
-			await $AudioStreamPlayer2D.finished
+			coin_sprite.visible = false
+			collision.set_deferred("disabled", true)
+			sfx.play()
+			await sfx.finished
 			call_deferred("queue_free") # for gold coin to be collected
 		else:
 			GameManager.score = 0
